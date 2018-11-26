@@ -49,16 +49,13 @@ export class CadastroDescricaoRespostaPage {
  
   ok(){
     
-
+    
     this.navCtrl.getPrevious().data.userBack;
     this.navCtrl.pop();
    // console.log(this.respostas);
 
     
   }
-
-  
-
   
   ionViewWillLeave() {  
     this.navCtrl.getPrevious().data.userBack = this.respostas;

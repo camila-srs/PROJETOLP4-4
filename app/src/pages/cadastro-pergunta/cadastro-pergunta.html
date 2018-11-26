@@ -22,44 +22,34 @@
           </ion-item>
           <ion-item>
               <ion-label stacked>Opção A: </ion-label>
-              <button ion-button outline item-end icon-start (click)="cadastroDescricaoOpA()">  <ion-icon name="add"></ion-icon></button>
+              <button  ion-button outline item-end icon-start (click)="cadastroDescricaoOpA()">  <ion-icon name="add"></ion-icon></button>
             </ion-item>
             
       <ion-item>
         <ion-label stacked>Opção B: </ion-label>
-        <button ion-button outline item-end icon-start (click)="cadastroDescricaoOpB()">  <ion-icon name="add"></ion-icon></button>
+        <button *ngIf ="aux>=1 " ion-button outline item-end icon-start (click)="cadastroDescricaoOpB()">  <ion-icon name="add"></ion-icon></button>
       </ion-item>
   
       <ion-item>
         <ion-label stacked>Opção C: </ion-label>
-        <button ion-button outline item-end icon-start (click)="cadastroDescricaoOpC()">  <ion-icon name="add"></ion-icon></button>
+        <button *ngIf ="aux>=2 " ion-button outline item-end icon-start (click)="cadastroDescricaoOpC()">  <ion-icon name="add"></ion-icon></button>
       </ion-item>
   
       <ion-item>
         <ion-label stacked>Opção D: </ion-label>
-        <button ion-button outline item-end icon-start (click)="cadastroDescricaoOpD()">  <ion-icon name="add"></ion-icon></button>
+        <button *ngIf ="aux>=3 " ion-button outline item-end icon-start (click)="cadastroDescricaoOpD()">  <ion-icon name="add"></ion-icon></button>
       </ion-item>
   
       <ion-item>
         <ion-label stacked>Opção E: </ion-label>
-        <button ion-button outline item-end icon-start (click)="cadastroDescricaoOpE()">  <ion-icon name="add"></ion-icon></button>
+        <button  *ngIf ="aux>=4" ion-button outline item-end icon-start (click)="cadastroDescricaoOpE()">  <ion-icon name="add"></ion-icon></button>
       </ion-item>
       <ion-item>
           <ion-label stacked>Categoria: </ion-label>
-          <ion-input placeholder="Digite a categoria" [(ngModel)]="pergunta.categoria" name="categoria" ></ion-input>
-        </ion-item>
-
-        <div *ngIf="error.condicao" text-center margin-top>
-          <p ion-text color="danger">{{error.message}}</p>
-      </div>
-  
-     
-      <div *ngIf="success.condicao" text-center margin-top>
-          <p ion-text color="primary">{{success.message}}</p>
-      </div>
-      
+          <ion-input  placeholder="Digite a categoria" [(ngModel)]="pergunta.categoria" name="categoria" ></ion-input>
+        </ion-item>  
       <div text-center margin-top>
-        <button ion-button color="secondary">Salvar</button>
+        <button ion-button color="secondary" (click) = "salvar()">Salvar</button>
       </div>
 
        

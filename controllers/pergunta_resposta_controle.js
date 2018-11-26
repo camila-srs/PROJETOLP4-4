@@ -145,7 +145,7 @@ module.exports = function(app){
                  * error genéricos
                  */
                 resp.status(500);
-                resp.send({"mensagem":"erro ao salvar pergunta"});
+                resp.send({"mensagem":"erro ao salvar pergunta"+" ta dando erro aqui"});
                 console.log(exception);
                 return;
             }
