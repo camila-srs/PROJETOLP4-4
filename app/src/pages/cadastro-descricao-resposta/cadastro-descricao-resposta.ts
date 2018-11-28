@@ -22,6 +22,8 @@ export class CadastroDescricaoRespostaPage {
   public pergunta: Pergunta;
   public resposta: Resposta[];
   public respostas: Resposta;
+  private error = { condicao: false, message:''};
+  private success = { condicao: false, message: ''};
  
   load;
   conteudoAlert = {titulo:'', mensagem:''}
@@ -50,12 +52,19 @@ export class CadastroDescricaoRespostaPage {
   ok(){
     
     
+   
     this.navCtrl.getPrevious().data.userBack;
     this.navCtrl.pop();
    // console.log(this.respostas);
 
     
   }
+
+
+
+  
+  
+
   
   ionViewWillLeave() {  
     this.navCtrl.getPrevious().data.userBack = this.respostas;

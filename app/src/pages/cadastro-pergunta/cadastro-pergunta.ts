@@ -164,7 +164,6 @@ cadastroDescricaoOpA(){
 
 
     if(!this.pergunta.respostas[0]){
-    console.log("entrou no if")
     this.respostas.label="a"
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada:this.respostas });
      this.aux2= false;  
@@ -187,13 +186,11 @@ cadastroDescricaoOpB(){
 
   this.respostas = new Resposta;
   if(!this.pergunta.respostas[1]){
-    console.log("entrou no if")
     this.respostas.label="b"
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada:this.respostas });
      this.aux2= false;  
   }else{
     if(this.pergunta.respostas[1].label === 'b'){
-      console.log("entrou no for");
       this.aux2= true;  
       this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[1]});
       return;
@@ -207,13 +204,11 @@ cadastroDescricaoOpB(){
 cadastroDescricaoOpC(){
   this.respostas = new Resposta;
   if(!this.pergunta.respostas[2]){
-    console.log("entrou no if")
     this.respostas.label="c"
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada:this.respostas });
      this.aux2= false;  
   }else{
     if(this.pergunta.respostas[2].label === 'c'){
-      console.log("entrou no for");
       this.aux2= true;  
       this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[2]});
       return;
@@ -226,7 +221,6 @@ cadastroDescricaoOpC(){
 
 cadastroDescricaoOpD(){
   this.respostas = new Resposta;
-  console.log("entrou no if")
   if(!this.pergunta.respostas[3]){
   this.respostas.label="d"
   this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada:this.respostas });
@@ -245,10 +239,8 @@ cadastroDescricaoOpE(){
   if(!this.pergunta.respostas[4]){
     this.respostas.label="e"
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada: this.respostas });
-     console.log("entrou else")
 }
   else{
-    console.log("entrou else")
     if(this.pergunta.respostas[4].label === 'e'){
       this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[4]});
 
@@ -260,9 +252,7 @@ cadastroDescricaoOpE(){
  
 
 
-validarDados(){
-  
-}
+
 
 verficaSalvarEditar(){
   this.error.condicao = false;
@@ -274,9 +264,25 @@ verficaSalvarEditar(){
         this.editar();
         }
         else{
-          //this.salvar();
+          this.salvar();
         }
     }
+}
+
+validarDados(){
+
+  if(!this.pergunta.categoria){
+    this.error.condicao = true;
+    this.error.message = "Categoria, campo obrigatório!";
+  }
+  if(!this.pergunta.pergunta){
+    this.error.condicao = true;
+    this.error.message = "Pergunta, campo obrigatório!";
+  }
+
+ 
+
+  
 }
 
 salvar(){
