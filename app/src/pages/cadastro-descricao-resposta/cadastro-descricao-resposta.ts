@@ -52,7 +52,7 @@ export class CadastroDescricaoRespostaPage {
   ok(){
     
     
-   
+        
     this.navCtrl.getPrevious().data.userBack;
     this.navCtrl.pop();
    // console.log(this.respostas);
@@ -62,9 +62,30 @@ export class CadastroDescricaoRespostaPage {
 
 
 
+  validarDados(){
+    if(!this.pergunta.respostas[1].condicao){
+      this.error.condicao = true;
+      this.error.message = "Condição, campo obrigatório!";
+    }
   
+    if(!this.pergunta.respostas[1].descricao){
+      this.error.condicao = true;
+      this.error.message = "Descrição, campo obrigatório!";
+    }
   
+  }
 
+  verficaOK(){
+    this.error.condicao = false;
+      this.validarDados();
+      
+      if(!this.error.condicao){
+        
+      //  if(this.pergunta.respostas){
+          this.ok();
+        //}
+      }
+  }
   
   ionViewWillLeave() {  
     this.navCtrl.getPrevious().data.userBack = this.respostas;
