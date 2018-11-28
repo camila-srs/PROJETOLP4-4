@@ -169,8 +169,6 @@ cadastroDescricaoOpA(){
      this.aux2= false;  
   }else{
     if(this.pergunta.respostas[0].label === 'a'){
-      console.log("entrou no for");
-      
       this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[0]});
       this.aux2 = true;
       return;
