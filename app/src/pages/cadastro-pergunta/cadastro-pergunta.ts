@@ -302,6 +302,7 @@ if(verificarRes2 <4){
 
 salvar(){
   this.error.condicao = false;
+  this.validarDados();
 if(!this.error.condicao){
   this.pergunta.id=null;
   this.http.post("http://localhost:3000/pergunta_resposta/", 
