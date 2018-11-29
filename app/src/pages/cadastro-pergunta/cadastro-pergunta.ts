@@ -299,8 +299,32 @@ salvar(){
       });
 }
 
-editar(){
 
+editar(){
+  this.error.condicao = false;
+  this.validarDados();
+  console.log(this.error.condicao,this.pergunta);
+  
+  if(!this.error.condicao){
+    //this.pergunta = this.pergunta;
+    this.resposta.descricao = this.resposta.descricao;
+
+    this.http.put("http://localhost:3000/pergunta_resposta/"+this.pergunta.id,this.pergunta)
+   
+      .subscribe(res => {
+        console.log(res);
+        this.error.condicao = false;
+        this.error.message = '';
+        this.success.condicao = true;
+        this.success.message = "TESTE "
+
+       
+        
+      }, (err) => {
+        console.log(err);
+      });
+
+  }
 }
 
 }

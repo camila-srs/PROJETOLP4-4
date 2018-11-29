@@ -52,6 +52,7 @@ export class CadastroUsuarioPage {
     
     if(!this.error.condicao){
       this.usuario.senha = this.senha;
+      
 
       this._http.put("http://localhost:3000/usuario/"+this.usuario.id,this.usuario)
      

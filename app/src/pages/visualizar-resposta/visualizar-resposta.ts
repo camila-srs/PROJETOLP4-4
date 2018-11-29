@@ -102,6 +102,8 @@ export class VisualizarRespostaPage {
     alert.present();
   }
 
+  // metodo que faz a chamada do componente para edição da pergunta
+
   editar(){
     this.navCtrl.push(CadastroPerguntaPage.name, {
       perguntaSelecionada: this.perguntas

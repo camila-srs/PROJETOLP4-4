@@ -45,6 +45,7 @@ export class CadastroDescricaoRespostaPage {
     
   }
 
+ 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad CadastroDescricaoRespostaPage');
   }
@@ -59,10 +60,6 @@ export class CadastroDescricaoRespostaPage {
 
     
   }
-
-
-
- 
 
   
   
