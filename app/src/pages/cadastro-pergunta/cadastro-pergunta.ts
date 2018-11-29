@@ -299,6 +299,9 @@ salvar(){
       });
 }
 
+/* Método está de edição pergunta-resposra: Obs: Está editando a String da pergunta, 
+  String resposta e a primeira opção da questão, (A)*/
+
 
 editar(){
   this.error.condicao = false;
