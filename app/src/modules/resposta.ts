@@ -1,12 +1,12 @@
 export class Resposta{
     label:string;
     descricao:string;
-    condicao:boolean;
+    condicao:string;
 
     constructor(){
         this.label = '';
         this.descricao = '';
-        this.condicao = false;
+        this.condicao = "false";
     }
 
 }

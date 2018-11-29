@@ -25,7 +25,9 @@ export class CadastroPerguntaPage {
     public resposta:Resposta;
     public aux:number=0;
     public aux2:boolean=false;
-    
+    botaoEditar:boolean=false;
+  botaoSalvar:boolean=false;
+   
     load;
   private orderForm;
  
@@ -52,9 +54,10 @@ export class CadastroPerguntaPage {
             {content: "Carregando..."}
           );
          this.aux = 5;
+         this.botaoEditar=true;
       }else{
         this.pergunta = new Pergunta();
-        
+        this.botaoSalvar=true;
     
       }
     
@@ -67,8 +70,8 @@ export class CadastroPerguntaPage {
  
   ionViewWillEnter() {
     this.resposta = new Resposta;
-    console.log(this.pergunta);
-    console.log(this.aux)
+    console.log(this.resposta);
+  
   if(this.navParams.get('userBack')){
       /** obtenho o parâmetro por meio do método get e inserio na lista pelo método push */
       
@@ -76,6 +79,7 @@ export class CadastroPerguntaPage {
      this.resposta.label = teste.label;
       this.resposta.descricao = teste.descricao;
       this.resposta.condicao = teste.condicao;
+      console.log(this.resposta);
      this.virificarTamanho();
       if(!this.validarRespota(this.resposta)){
       this.pergunta.respostas.push( this.resposta);
@@ -88,42 +92,40 @@ export class CadastroPerguntaPage {
 
   validarRespota(as:Resposta):boolean{
       if(this.aux2){
-      for(var i = 0 ; i<5; i++){
       if(as.label === 'a'){
-        this.pergunta.respostas[i].label=this.resposta.label;
-        this.pergunta.respostas[i].descricao = this.resposta.descricao;
-        this.pergunta.respostas[i].condicao = this.resposta.condicao;
+        this.pergunta.respostas[0].label=this.resposta.label;
+        this.pergunta.respostas[0].descricao = this.resposta.descricao;
+        this.pergunta.respostas[0].condicao = this.resposta.condicao;
         return true;
       }else{
         if(as.label === 'b'){
-          this.pergunta.respostas[i].label=this.resposta.label
-          this.pergunta.respostas[i].descricao = this.resposta.descricao;
-          this.pergunta.respostas[i].condicao = this.resposta.condicao;
+          this.pergunta.respostas[1].label=this.resposta.label
+          this.pergunta.respostas[1].descricao = this.resposta.descricao;
+          this.pergunta.respostas[1].condicao = this.resposta.condicao;
           return true;
       }else{
         if(as.label === 'c'){
-          this.pergunta.respostas[i].label=this.resposta.label
-          this.pergunta.respostas[i].descricao = this.resposta.descricao;
-          this.pergunta.respostas[i].condicao = this.resposta.condicao;
+          this.pergunta.respostas[2].label=this.resposta.label
+          this.pergunta.respostas[2].descricao = this.resposta.descricao;
+          this.pergunta.respostas[2].condicao = this.resposta.condicao;
         return true;
     }else{
       if(as.label === 'd'){
-        this.pergunta.respostas[i].label=this.resposta.label
-        this.pergunta.respostas[i].descricao = this.resposta.descricao;
-        this.pergunta.respostas[i].condicao = this.resposta.condicao;
+        this.pergunta.respostas[3].label=this.resposta.label
+        this.pergunta.respostas[3].descricao = this.resposta.descricao;
+        this.pergunta.respostas[3].condicao = this.resposta.condicao;
         return true;
     }else{
       if(as.label === 'e'){
-        this.pergunta.respostas[i].label=this.resposta.label
-        this.pergunta.respostas[i].descricao = this.resposta.descricao;
-        this.pergunta.respostas[i].condicao = this.resposta.condicao;
+        this.pergunta.respostas[4].label=this.resposta.label
+        this.pergunta.respostas[4].descricao = this.resposta.descricao;
+        this.pergunta.respostas[4].condicao = this.resposta.condicao;
         return true;
     }
     }
   }
     }
-  }
-
+  
   }
 
 
@@ -220,11 +222,13 @@ cadastroDescricaoOpC(){
 cadastroDescricaoOpD(){
   this.respostas = new Resposta;
   if(!this.pergunta.respostas[3]){
-  this.respostas.label="d"
+  this.respostas.label='d'
   this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada:this.respostas });
+  this.aux2= false;  
   }else{
     if(this.pergunta.respostas[3].label === 'd'){
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[3]});
+    this.aux2= true;  
     return;
 
   }
@@ -235,13 +239,14 @@ cadastroDescricaoOpD(){
 cadastroDescricaoOpE(){
   this.respostas = new Resposta;
   if(!this.pergunta.respostas[4]){
-    this.respostas.label="e"
+    this.respostas.label='e'
     this.navCtrl.push(CadastroDescricaoRespostaPage.name,{ respostaSelecionada: this.respostas });
+    this.aux2= false;  
 }
   else{
     if(this.pergunta.respostas[4].label === 'e'){
       this.navCtrl.push(CadastroDescricaoRespostaPage.name,{respostaSelecionada:this.pergunta.respostas[4]});
-
+      this.aux2= true;  
       return;
 
     }
@@ -252,27 +257,39 @@ cadastroDescricaoOpE(){
 
 
 
-verficaSalvarEditar(){
-  this.error.condicao = false;
-    this.validarDados();
-    
-    if(!this.error.condicao){
-      
-      if(this.pergunta){
-        this.editar();
-        }
-        else{
-          this.salvar();
-        }
-    }
-}
-
 validarDados(){
-
+var j = 0;
+var guardarP:String[] = ["","","","",""];
+var verificarRes:number=0;
+var verificarRes2:number=0;
+this.error.condicao = false;
   if(!this.pergunta.categoria){
     this.error.condicao = true;
     this.error.message = "Categoria, campo obrigatório!";
   }
+  for(var i = 0;i<this.pergunta.respostas.length;i++){
+  if(this.pergunta.respostas[i].condicao === "True"){
+    j = j+1;
+    verificarRes = verificarRes+1;
+    guardarP[j] = this.pergunta.respostas[i].label;
+    console.log(guardarP);
+  
+  }else{
+   verificarRes2 = verificarRes2+1;
+
+  }
+
+}
+if(verificarRes>=2){
+  this.error.condicao = true;
+  this.error.message = "As opçãoes :" +guardarP+ "  estao como true por favor escolha somente uma" ;
+}else{
+if(verificarRes2 <4){
+  this.error.condicao = true;
+  this.error.message = "Por favor preencha todas as opçoes" ;
+}
+
+}
   if(!this.pergunta.pergunta){
     this.error.condicao = true;
     this.error.message = "Pergunta, campo obrigatório!";
@@ -284,6 +301,8 @@ validarDados(){
 }
 
 salvar(){
+  this.error.condicao = false;
+if(!this.error.condicao){
   this.pergunta.id=null;
   this.http.post("http://localhost:3000/pergunta_resposta/", 
     this.pergunta
@@ -297,13 +316,37 @@ salvar(){
       }, (err) => {
         console.log(err);
       });
+    }
 }
 
 editar(){
+  
+    this.error.condicao = false;
+    this.validarDados();
+    console.log(this.error.condicao,this.pergunta);
+    
+    if(!this.error.condicao){
 
+      this.http.put("http://localhost:3000/pergunta_resposta/"+this.pergunta.id,this.pergunta)
+     
+        .subscribe(res => {
+          console.log(res);
+          this.error.condicao = false;
+          this.error.message = '';
+          this.success.condicao = true;
+          this.success.message = "Criado com sucesso"
+
+         
+          
+        }, (err) => {
+          console.log(err);
+        });
+
+    }
+  }
 }
 
-}
+
 
 
  

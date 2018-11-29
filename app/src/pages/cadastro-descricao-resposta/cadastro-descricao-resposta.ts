@@ -51,12 +51,15 @@ export class CadastroDescricaoRespostaPage {
  
   ok(){
     
+    console.log(this.respostas);
     
-        
+    if(this.respostas.condicao!=null && this.respostas.descricao!= "")    {
     this.navCtrl.getPrevious().data.userBack;
     this.navCtrl.pop();
-   console.log(this.respostas);
-
+  }else{
+    this.error.condicao = true;
+  this.error.message = "Condição e Descrição são obrigatoria!";
+  }
     
   }
 

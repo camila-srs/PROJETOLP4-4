@@ -12,7 +12,7 @@
                 </ion-item>
                 <ion-item>
                         <ion-label stacked>Condiçao </ion-label>
-                        <ion-select [(ngModel)]= "respostas.condicao" name="condicao" placeholder="Selecione" > 
+                        <ion-select [(ngModel)]= "respostas.condicao" name="condicao" placeholder="False"> 
                             <ion-option>True</ion-option>
                             <ion-option selected >False</ion-option>
                         </ion-select>
@@ -25,5 +25,20 @@
                     <div text-center margin-top>
                       <button ion-button color="secondary" (click) = "ok()" >OK</button>
                     </div>
+ <!--  
+        ngIf bind que permite exibir conteúdo, se a variável do controller error.condição for verdadeira, se houver algum erro, seta-se esta variável como
+        verdadeira e apresenta a mensagem de erro
+      -->
+      <div *ngIf="error.condicao" text-center margin-top>
+        <p ion-text color="danger">{{error.message}}</p>
+    </div>
+
+    <!--  
+      ngIf bind que permite exibir conteúdo, se a variável do controller success.condicao for verdadeira, se o sucesso no cadastro, 
+      seta-se esta variável como  verdadeira e apresenta a mensagem de sucesso
+    -->
+       
+
+
                        </form>
     </ion-content>
