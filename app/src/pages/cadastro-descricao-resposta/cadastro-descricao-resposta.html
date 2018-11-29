@@ -4,7 +4,7 @@
     </ion-navbar>
   </ion-header>
     <ion-content padding>
-      <form (ngSubmit)="verficaOK()">
+        <form >
             <ion-list>  
             <ion-item>
                   <ion-label stacked>Descriçao Resposta: </ion-label>
@@ -22,26 +22,8 @@
               
                     </ion-list>
 
-                   <!--  
-        ngIf bind que permite exibir conteúdo, se a variável do controller error.condição for verdadeira, se houver algum erro, seta-se esta variável como
-        verdadeira e apresenta a mensagem de erro
-      -->
-      <div *ngIf="error.condicao" text-center margin-top>
-        <p ion-text color="danger">{{error.message}}</p>
-    </div>
-
-    <!--  
-      ngIf bind que permite exibir conteúdo, se a variável do controller success.condicao for verdadeira, se o sucesso no cadastro, 
-      seta-se esta variável como  verdadeira e apresenta a mensagem de sucesso
-    -->
-    <div *ngIf="success.condicao" text-center margin-top>
-        <p ion-text color="primary">{{success.message}}</p>
-    </div>
-    
-    <div text-center margin-top>
-      <button ion-button color="secondary">Ok</button>
-    </div>
+                    <div text-center margin-top>
+                      <button ion-button color="secondary" (click) = "ok()" >OK</button>
+                    </div>
                        </form>
     </ion-content>
-
-

@@ -309,6 +309,7 @@ editar(){
   if(!this.error.condicao){
     //this.pergunta = this.pergunta;
     this.resposta.descricao = this.resposta.descricao;
+<<<<<<< HEAD
 
     this.http.put("http://localhost:3000/pergunta_resposta/"+this.pergunta.id,this.pergunta)
    
@@ -325,6 +326,24 @@ editar(){
         console.log(err);
       });
 
+=======
+
+    this.http.put("http://localhost:3000/pergunta_resposta/"+this.pergunta.id,this.pergunta)
+   
+      .subscribe(res => {
+        console.log(res);
+        this.error.condicao = false;
+        this.error.message = '';
+        this.success.condicao = true;
+        this.success.message = "TESTE "
+
+       
+        
+      }, (err) => {
+        console.log(err);
+      });
+
+>>>>>>> a3c49fece489c4e04cbf3dda0fc075b17706577a
   }
 }
 
