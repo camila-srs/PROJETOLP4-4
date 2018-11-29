@@ -300,7 +300,8 @@ salvar(){
 }
 
 /* Método está de edição pergunta-resposra: Obs: Está editando a String da pergunta, 
-  String resposta e a primeira opção da questão, (A)*/
+  String resposta e a primeira opção da questão (A). Já as demais alternativas
+  a aplicação não acata as alterações*/
 
 
 editar(){
