@@ -11,8 +11,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CadastroUsuarioPage {
  
-
-  private orderForm;
   public usuario: Usuario;
   private senha: string;
   private senha_confirma:string;

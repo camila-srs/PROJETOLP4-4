@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { ListaUsuarioPage } from '../lista-usuario/lista-usuario';
 import { CadastroPerguntaPage } from '../cadastro-pergunta/cadastro-pergunta';
 import { ListaRespotaPage } from '../lista-respota/lista-respota';
 import { CadastroUsuarioPage } from '../cadastro-usuario/cadastro-usuario';
+import { Usuario } from '../../modules/usuario';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
 
   listUsuario:boolean = false;
   listPergunta:boolean = false;
@@ -35,9 +38,6 @@ export class HomePage {
     this.navCtrl.push(CadastroUsuarioPage.name)
   }
 
-  
-
-
 mostrarListaUsuario(){
   this.listUsuario=!this.listUsuario;
 };
@@ -47,3 +47,4 @@ mostrarListaPergunta(){
 };
 
 }
+

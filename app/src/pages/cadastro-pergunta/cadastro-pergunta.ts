@@ -25,7 +25,7 @@ export class CadastroPerguntaPage {
     public resposta:Resposta;
     public aux:number=0;
     public aux2:boolean=false;
-    
+    ax4 :number=0;
     load;
   private orderForm;
  
@@ -261,6 +261,9 @@ cadastroDescricaoOpE(){
 
 
 validarDados(){
+
+
+
   
 }
 
